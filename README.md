@@ -5,7 +5,8 @@ This has the ability to subscribe to multiple topics and all the topics received
 and choronological names. The initialise funciton is used to initialse the number of files.
 
 to compile:
-  gcc -o object_name pubish.c -lpaho-mqtt3c
+
+  gcc -o object_name pubish.c -lpaho-mqtt3c   
   gcc -o object_name subscribe.c -lpaho-mqtt3c
   gcc -o object_name initialise.c 
   
