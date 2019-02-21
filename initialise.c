@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define PATH_TO_NFILE "/home/thanveer/smartbin/mqtt_study/mulitple_subscribe/saved_file/details/nos.txt"
+#define PATH_TO_NFILE "/path/to/details_file"
 
 void initialise()			// initialise the details file with 0
 {
