@@ -4,13 +4,13 @@
 #include <string.h>
 #include "MQTTClient.h"
 #include <pthread.h>
-#define ADDRESS     		"172.16.2.17:1883"
+#define ADDRESS     		"xxx.xx.x.xx:PPPP"  // contains the ip address followed by the port number
 #define CLIENTID    		"ExampleClientSub1"
 #define TIMEOUT    		 10000L
-#define TOPIC1      		"Topic1"
-#define TOPIC2       		"Topic2"
-#define SAVEFILE_PATH_FILE 	"/home/thanveer/smartbin/mqtt_study/mulitple_subscribe/saved_file/received_file"
-#define PATH_TO_NFILE 		"/home/thanveer/smartbin/mqtt_study/mulitple_subscribe/saved_file/details/nos.txt"
+#define TOPIC1      		"Topic1"	// name of the first topic
+#define TOPIC2       		"Topic2"	// name of the second topic
+#define SAVEFILE_PATH_FILE 	"/path/to/saved/file"
+#define PATH_TO_NFILE 		"/path/to/save/the/number/of/files/saved/text/file"
 volatile MQTTClient_deliveryToken deliveredtoken;
 int no_of_files;				// to store the nubmer of files arrived
 void delivered(void *context, MQTTClient_deliveryToken dt)
@@ -88,9 +88,9 @@ int main(int argc, char* argv[])
     	char* topics[2] =
 	{
 		"Topic1","Topic2",
-	};
+	};				// this array is used to initialise the topics names
 	int qoss[2] = {1, 1};
-    	MQTTClient client;
+    	MQTTClient client;			// to access the mqtt client 
     	MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
     	int rc;
     	int ch;
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
         	exit(EXIT_FAILURE);
     	}
     	int check;
-    	check=MQTTClient_subscribeMany(client,2,topics,qoss); 	
+    	check=MQTTClient_subscribeMany(client,2,topics,qoss); 	// this function is used to subscribe to different topics
 	printf("Subscribing to %s and %s \n",topics[0],topics[1]);
     	printf("MQTTClient_subscribeMany() return :%d\n",check);
     	do
